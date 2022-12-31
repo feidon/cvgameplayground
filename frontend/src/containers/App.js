@@ -1,35 +1,33 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import { useEffect } from "react";
-import LeaderBoard from "./LeaderBoard";
+import { useEffect, createContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
+
+import { FINGER_MORA } from "../constants";
+import { useQuery } from "@apollo/client";
+import { USER_QUERY, USER_SUBSCRIPTION } from "../graphql";
+
+import LeaderBoard from "./LeaderBoard";
 import useUser from "../hooks/useUser";
-import { createContext } from "react";
+import Register from "./Register";
 import Lobby from "./Lobby";
 import Login from "./Login";
-import Register from "./Register";
 import About from "./About";
 import FlappyBirdGamePage from "./flappybird/GamePage";
 import RockPaperScissors from "./rock-paper-scissors/GamePage";
 import Fingerexer from "./fingerexercise/GamePage";
-import { useQuery } from "@apollo/client";
-import { USER_QUERY, USER_SUBSCRIPTION } from "../graphql";
-import { FINGER_MORA } from "../constants";
 
 const theme = createTheme({
   palette: {
     mode: "dark",
+    type: "dark",
     primary: {
-      main: "#8893ef",
+      main: "#7c9fff",
     },
     secondary: {
-      main: "#7f3b56",
-    },
-    background: {
-      paper: "#303030",
-      default: "#303030",
+      main: "#ffde66",
     },
   },
 });
@@ -39,17 +37,7 @@ const UserContext = createContext();
 function App() {
   const {
     UserData,
-    game,
-    time,
-    timerOn,
     setUserData,
-    setGame,
-    setTime,
-    setTimerOn,
-    handleChangeUserData,
-    handleCreate,
-    handleLogin,
-    handleUpdate,
     handleLogout,
     handleSignUp,
   } = useUser();
@@ -73,17 +61,7 @@ function App() {
     <UserContext.Provider
       value={{
         UserData,
-        game,
-        time,
-        timerOn,
         setUserData,
-        setGame,
-        setTime,
-        setTimerOn,
-        handleChangeUserData,
-        handleCreate,
-        handleLogin,
-        handleUpdate,
         handleLogout,
         handleSignUp,
       }}

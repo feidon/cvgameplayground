@@ -50,69 +50,75 @@ const Login = () => {
       navigate(`/login/${UserData.username}/lobby`);
     }
   });
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault(); //避免刷新頁面
-    if (username && password) {
-      const signInPayLoad = await LoginMutation({
-        variables: {
-          data: {
-            name: username,
-            password: password,
-          },
-        },
-      });
-      if (signInPayLoad.data.loginUser.ok) {
-        let scores = {};
-        if (signInPayLoad.data.loginUser.user.scores !== null) {
-          signInPayLoad.data.loginUser.user.scores.map((score) => {
-            scores[score.game] = score.score;
-          });
-          setUserData({
-            username: username,
-            password: password,
-            scores: { ...scores },
-            signed: true,
-          });
-        } else {
-          setUserData({
-            username: username,
-            password: password,
-            scores: {},
-            signed: true,
-          });
-        }
-        navigate(`/login/${username}/lobby`);
-      } else {
-        setAlert({
-          open: true,
-          message: signInPayLoad.data.loginUser.error,
-          severity: "error",
-        });
-        setUsername("");
-        setPassword("");
-      }
-    } else {
-      if (!username) {
-        errorRef.current = {
-          ...errorRef.current,
-          username: true,
-          username_helperText: "Required",
-        };
-      } else {
-        errorRef.current.username = false;
-      }
-      if (!password) {
-        errorRef.current = {
-          ...errorRef.current,
-          password: true,
-          password_helperText: "Required",
-        };
-      } else {
-        errorRef.current.password = false;
-      }
-      setError(errorRef.current);
-    }
+    setUserData({
+      username: "test",
+      password: "test",
+      scores: {},
+      signed: true,
+    });
+    // if (username && password) {
+    //   const signInPayLoad = await LoginMutation({
+    //     variables: {
+    //       data: {
+    //         name: username,
+    //         password: password,
+    //       },
+    //     },
+    //   });
+    //   if (signInPayLoad.data.loginUser.ok) {
+    //     let scores = {};
+    //     if (signInPayLoad.data.loginUser.user.scores !== null) {
+    //       signInPayLoad.data.loginUser.user.scores.map((score) => {
+    //         scores[score.game] = score.score;
+    //       });
+    //       setUserData({
+    //         username: username,
+    //         password: password,
+    //         scores: { ...scores },
+    //         signed: true,
+    //       });
+    //     } else {
+    //       setUserData({
+    //         username: username,
+    //         password: password,
+    //         scores: {},
+    //         signed: true,
+    //       });
+    //     }
+    //     navigate(`/login/${username}/lobby`);
+    //   } else {
+    //     setAlert({
+    //       open: true,
+    //       message: signInPayLoad.data.loginUser.error,
+    //       severity: "error",
+    //     });
+    //     setUsername("");
+    //     setPassword("");
+    //   }
+    // } else {
+    //   if (!username) {
+    //     errorRef.current = {
+    //       ...errorRef.current,
+    //       username: true,
+    //       username_helperText: "Required",
+    //     };
+    //   } else {
+    //     errorRef.current.username = false;
+    //   }
+    //   if (!password) {
+    //     errorRef.current = {
+    //       ...errorRef.current,
+    //       password: true,
+    //       password_helperText: "Required",
+    //     };
+    //   } else {
+    //     errorRef.current.password = false;
+    //   }
+    //   setError(errorRef.current);
+    // }
   };
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
