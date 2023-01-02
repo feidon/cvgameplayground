@@ -1,5 +1,5 @@
 import * as handpose from "@tensorflow-models/handpose";
-import "@tensorflow/tfjs-backend-webgl";
+import "@tensorflow/tfjs";
 import * as imgs from "./SampleImage";
 import * as fp from "./fingerpose-master";
 import { RockGesture, PaperGesture, ScissorsGesture } from "./Gestures";

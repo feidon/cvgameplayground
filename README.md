@@ -1,4 +1,12 @@
-# Computer Vision Game Playground
+# Computer Vision Playground
+
+Computer vision playground 是一個小遊戲集合，使用 TensorFlow.js 與 MediaPipe 提供已訓練完成的深度學習模型，設計三種利用攝影機進行遊玩的遊戲，並且可以進行登入來記錄在計分板上與人比較。
+
+Team: @Bosh-Kuo, @b06901089
+
+![demo1](demo1.png)
+![demo2](demo2.png)
+![demo3](demo3.png)
 
 ## Installation
 
@@ -6,48 +14,35 @@
 
 - Install frontend & backend packages
 
-yarn
-
 ```
-# in './Playground'
+# in './cvplayground'
 cd frontend && yarn
-
-# in './Playground'
 cd backend && yarn
-```
-
-npm
-
-```
-# in './Playground'
+or
+# in './cvplayground'
 cd frontend && npm inatll
-
-# in './Playground'
 cd backend && npm install
 ```
 
 ## Run in localhost
 
 1. Open two terminal windows
-2. Go to './Playground/backend' and copy the `.env.defaults` file to `.env` file
+2. Go to './cvplayground/backend' and copy the `.env.defaults` file to `.env` file
 3. Fill in the MONGO_URL in the `.env` file with your [MongoDB](https://www.mongodb.com) url and set SALT_ROUNDS
 
 ```
 #.env
 MONGO_URL= (your mongo url)
 SALT_ROUNDS= (you can set SALT_ROUNDS=10)
+PORT= (your backend port)
 ```
 
-4. Go to './Playground'
+4. Go to './cvplayground'
 5. In one window run this script to start your backend
 
 ```
 yarn backend
-```
-
 or
-
-```
 npm run start
 ```
 
@@ -55,44 +50,12 @@ npm run start
 
 ```
 yarn frontend
-```
-
 or
-
-```
 npm start
 ```
 
 7. Make sure your backend connect to your [MongoDB](https://www.mongodb.com)
 8. Open http://localhost:3000 with your browser and you should be able to start plaing our games!
-
-## Test
-
-- Sign Up / Sign In 功能正常
-- 可正常從 Lobby 進入各個遊戲
-- 可正常從左側 DashBoard 進入遊戲以及 LeaderBoard
-- 各個遊戲可以合理的判斷手勢與姿勢
-- 分數與時間計算無誤且反應於 LeaderBoard
-
-## Teamwork
-
-郭柏志：
-
-- 前端整體畫面 Layout 的 UI/UX 設計
-- Sign In, Sign Up Page 功能與畫面設計
-- Game Page 架構與畫面設計
-- Pose Flappy Bird Game 遊戲開發
-- 各頁面的 Routes 安排與 path 處理
-
-費聿暄:
-
-- Finger Exercise 遊戲開發
-- 後端 graphql 開發與 mongodb 串連
-- 成果部署
-
-蔡予謙:
-
-- Rock-Paper-Scissores Game 遊戲開發
 
 ## Reference
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import { UPDATE_MUTATION } from "../../graphql/index";
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/client";
 import { UserContext } from "../App";
 import './Game.css';
 import GameParamters from "../../utils/flappybird/GameSetting"
@@ -10,7 +10,7 @@ import Menu from "../../components/flappybird/Menu"
 import Pipe from "../../components/flappybird/Pipe"
 import Webcam from "react-webcam";
 import * as poseDetection from '@tensorflow-models/pose-detection';
-import '@tensorflow/tfjs-backend-webgl';
+import '@tensorflow/tfjs';
 import Button from "@mui/material/Button";
 
 

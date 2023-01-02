@@ -1,9 +1,9 @@
-import '@tensorflow/tfjs-backend-webgl';
+import '@tensorflow/tfjs';
 import React from 'react';
 import Prediction from './Prediction';
 import { useEffect, useRef, useState, useContext } from 'react';
 import { UPDATE_MUTATION } from "../../graphql/index";
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/client";
 import { UserContext } from "../../containers/App";
 import { useNavigate } from "react-router-dom";
 import { FINGER_MORA } from '../../constants';

@@ -4,7 +4,7 @@ import {
   LOGIN_MUTATION,
   UPDATE_MUTATION,
 } from "../graphql/index";
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/client";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const LOCALSTORAGE_KEY = "save-me";
