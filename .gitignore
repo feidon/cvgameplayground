@@ -163,6 +163,3 @@
 
 # TernJS port file
 **/.tern-port
-
-**/frontend/src/img
-**/frontend/src/img/*

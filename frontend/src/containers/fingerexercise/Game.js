@@ -10,7 +10,7 @@ import Grid from "@mui/material/Grid";
 import { UserContext } from "../App";
 import { FINGER_EXERCISE } from "../../constants/index";
 import { UPDATE_MUTATION } from "../../graphql/index";
-import { useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/react-hooks";
 
 class Timer {
   constructor() {

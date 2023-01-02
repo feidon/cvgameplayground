@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { SIGNUP_MUTATION } from "../graphql/index";
-import { useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/react-hooks";
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";

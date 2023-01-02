@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import { UPDATE_MUTATION } from "../../graphql/index";
-import { useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/react-hooks";
 import { UserContext } from "../App";
 import './Game.css';
 import GameParamters from "../../utils/flappybird/GameSetting"
