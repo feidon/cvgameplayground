@@ -57,6 +57,10 @@ npm start
 7. Make sure your backend connect to your [MongoDB](https://www.mongodb.com)
 8. Open http://localhost:3000 with your browser and you should be able to start plaing our games!
 
+## Bug
+- Leaderboard 顯示錯誤
+- 偶爾會有畫面凍結問題
+
 ## Reference
 
 - [MediaPipe Hands](https://google.github.io/mediapipe/solutions/hands.html)
