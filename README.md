@@ -2,7 +2,7 @@
 
 Computer vision playground 是一個小遊戲集合，使用 TensorFlow.js 與 MediaPipe 提供已訓練完成的深度學習模型，設計三種利用攝影機進行遊玩的遊戲，並且可以進行登入來記錄在計分板上與人比較。
 
-Team: @Bosh-Kuo, @b06901089
+Team: [@Bosh-Kuo](https://github.com/Bosh-Kuo), [@b06901089](https://github.com/b06901089)
 
 ![demo1](Images/demo1.png)
 ![demo2](Images/demo2.png)
