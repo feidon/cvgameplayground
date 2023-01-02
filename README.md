@@ -4,9 +4,9 @@ Computer vision playground 是一個小遊戲集合，使用 TensorFlow.js 與 M
 
 Team: @Bosh-Kuo, @b06901089
 
-![demo1](demo1.png)
-![demo2](demo2.png)
-![demo3](demo3.png)
+![demo1](Images/demo1.png)
+![demo2](Images/demo2.png)
+![demo3](Images/demo3.png)
 
 ## Installation
 
