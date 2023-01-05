@@ -50,15 +50,9 @@ const Login = () => {
       navigate(`/login/${UserData.username}/lobby`);
     }
   });
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault(); //避免刷新頁面
-    // setUserData({
-    //   username: "test",
-    //   password: "test",
-    //   scores: {},
-    //   signed: true,
-    // });
     if (username && password) {
       const signInPayLoad = await LoginMutation({
         variables: {
@@ -69,25 +63,12 @@ const Login = () => {
         },
       });
       if (signInPayLoad.data.loginUser.ok) {
-        let scores = {};
-        if (signInPayLoad.data.loginUser.user.scores !== null) {
-          signInPayLoad.data.loginUser.user.scores.map((score) => {
-            scores[score.game] = score.score;
-          });
-          setUserData({
-            username: username,
-            password: password,
-            scores: { ...scores },
-            signed: true,
-          });
-        } else {
-          setUserData({
-            username: username,
-            password: password,
-            scores: {},
-            signed: true,
-          });
-        }
+        setUserData({
+          username: username,
+          password: password,
+          scores: signInPayLoad.data.loginUser.user.scores,
+          signed: true,
+        });
         navigate(`/login/${username}/lobby`);
       } else {
         setAlert({

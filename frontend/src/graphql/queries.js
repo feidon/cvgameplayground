@@ -5,8 +5,9 @@ export const USER_QUERY = gql`
     users(game: $game) {
       name
       scores {
-        game
-        score
+        POSE_FLAPPY_BIRD
+        ROCK_PAPER_SCISSORS
+        FINGER_EXERCISE
       }
     }
   }

@@ -1,17 +1,18 @@
 type Score {
-  game: String
-  score: String
+  POSE_FLAPPY_BIRD: Int
+  ROCK_PAPER_SCISSORS: Int
+  FINGER_EXERCISE: Int
 }
 
 type User {
   id: ID!
   name: String!
   password: String!
-  scores: [Score!]
+  scores: Score
 }
 
 type Query {
-  users(game: String!): [User!]!
+  users(game: String): [User!]
 }
 
 type Mutation {

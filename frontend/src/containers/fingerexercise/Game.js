@@ -236,41 +236,29 @@ function Game({ setPrePare }) {
     if (start) {
       setTimerOn(true);
     } else {
+      console.log(UserData, time);
       setGesarray(Prediction.getrandomarr(30));
       setGesarraybool(Array(30).fill(false));
       setTimerOn(false);
-      if (time !== 0) {
-        if (UserData.scores.hasOwnProperty(FINGER_EXERCISE)) {
-          if (time < UserData.scores[FINGER_EXERCISE]) {
-            setUserData({
-              ...UserData,
-              scores: { ...UserData.scores, [FINGER_EXERCISE]: time },
-            });
-            UpdateMutation({
-              variables: {
-                data: {
-                  name: UserData.username,
-                  game: FINGER_EXERCISE,
-                  score: time,
-                },
-              },
-            });
-          }
-        } else {
-          setUserData({
-            ...UserData,
-            scores: { ...UserData.scores, [FINGER_EXERCISE]: time },
-          });
-          UpdateMutation({
-            variables: {
-              data: {
-                name: UserData.username,
-                game: FINGER_EXERCISE,
-                score: time,
-              },
+      if (
+        time !== 0 &&
+        (!UserData.scores[FINGER_EXERCISE] ||
+          time < UserData.scores[FINGER_EXERCISE])
+      ) {
+        setUserData({
+          ...UserData,
+          scores: { ...UserData.scores, [FINGER_EXERCISE]: time },
+        });
+        console.log(time);
+        UpdateMutation({
+          variables: {
+            data: {
+              name: UserData.username,
+              game: FINGER_EXERCISE,
+              score: time,
             },
-          });
-        }
+          },
+        });
       }
     }
   }, [start]);

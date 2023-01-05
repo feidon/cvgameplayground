@@ -7,8 +7,9 @@ export const USER_SUBSCRIPTION = gql`
       data {
         name
         scores {
-          game
-          score
+          POSE_FLAPPY_BIRD
+          ROCK_PAPER_SCISSORS
+          FINGER_EXERCISE
         }
       }
     }

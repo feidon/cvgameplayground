@@ -1,10 +1,14 @@
 const User = {
   async scores(parent, args, { userModel }, info) {
-    const userscores = await userModel.findOne({ id: parent.id });
-    if (!userscores.scores) {
-      return null;
+    // console.log("parent", parent.id);
+
+    const users = await userModel.findOne({ id: parent.id });
+    // console.log(users.scores);
+    // console.log(users.hasOwnProperty("scores"), users);
+    if (users.scores) {
+      return users.scores;
     }
-    return Object.entries(userscores.scores);
+    return null;
   },
 };
 

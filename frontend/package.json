@@ -8,6 +8,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mediapipe/hands": "^0.4.1646424915",
+    "@mediapipe/pose": "^0.5.1635988162",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.2",
     "@tensorflow-models/handpose": "^0.0.7",
@@ -29,7 +30,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

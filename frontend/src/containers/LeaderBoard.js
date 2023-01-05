@@ -53,25 +53,25 @@ const TabPanel = (props) => {
   };
 
   const getdata = (users, game) => {
-    let filtdata = users.map((user) => {
+    let filtdata = users.filter((user) => {
       if (user.scores) {
-        let gamescore = user.scores.filter((score) => score.game === game);
-        // console.log(gamescore);
-        if (gamescore.length > 0) {
-          if (game === POSE_FLAPPY_BIRD) {
-            return [user.name, gamescore[0].score];
-          } else {
-            return [user.name, gettime(gamescore[0].score)];
-          }
-        }
+        return user.scores[game];
+      } else {
+        return false;
       }
     });
-    // console.log(filtdata);
     if (game === POSE_FLAPPY_BIRD) {
-      return filtdata.sort((a, b) => b[1] - a[1]);
+      filtdata = filtdata.sort((a, b) => b.scores[game] - a.scores[game]);
     } else {
-      return filtdata.sort((a, b) => a[1] - b[1]);
+      filtdata = filtdata.sort((a, b) => a.scores[game] - b.scores[game]);
     }
+    return filtdata.map((user) => {
+      if (game === POSE_FLAPPY_BIRD) {
+        return [user.name, user.scores[game]];
+      } else {
+        return [user.name, gettime(user.scores[game])];
+      }
+    });
   };
 
   if (data) {

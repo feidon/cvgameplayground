@@ -14,6 +14,9 @@ import SportsScoreIcon from "@mui/icons-material/SportsScore";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../containers/App";
 import { useContext } from "react";
+import flap from "../../img/Flappy_Bird_icon.png";
+import rock from "../../img//Rock_Paper_Scissors_icon.png";
+import finger from "../../img/fingerexer.jpg";
 
 const drawerWidth = 240;
 const Drawer = styled(MuiDrawer, {
@@ -65,7 +68,7 @@ const SideBar = ({ open, setOpen, toggleSideBar }) => {
       <List>
         <div>
           {/* GameList */}
-          <ListSubheader inset>Game List</ListSubheader>
+          {/* <ListSubheader inset>Game List</ListSubheader> */}
           <ListItem
             button
             onClick={() => {
@@ -73,10 +76,7 @@ const SideBar = ({ open, setOpen, toggleSideBar }) => {
             }}
           >
             <ListItemIcon>
-              <Avatar
-                alt="Pose Flappy Bird"
-                src={require("../../img/Flappy_Bird_icon.png")}
-              />
+              <Avatar alt="Pose Flappy Bird" src={flap} />
             </ListItemIcon>
             <ListItemText primary="Pose-Flappy-Bird" />
           </ListItem>
@@ -87,10 +87,7 @@ const SideBar = ({ open, setOpen, toggleSideBar }) => {
             }}
           >
             <ListItemIcon>
-              <Avatar
-                alt="Remy Sharp"
-                src={require("../../img//Rock_Paper_Scissors_icon.png")}
-              />
+              <Avatar alt="Rock Paper Scissors" src={rock} />
             </ListItemIcon>
             <ListItemText primary="Rock-Paper-Scissors" />
           </ListItem>
@@ -102,19 +99,20 @@ const SideBar = ({ open, setOpen, toggleSideBar }) => {
             }}
           >
             <ListItemIcon>
-              <Avatar alt="hands" src={require("../../img/fingerexer.jpg")} />
+              <Avatar alt="Finger Exercise" src={finger} />
             </ListItemIcon>
             <ListItemText primary="Finger-Exercise" />
           </ListItem>
 
           {/* LeaderBoard */}
           <Divider />
-          <ListSubheader inset>Statistics</ListSubheader>
+          {/* <ListSubheader inset>Statistics</ListSubheader> */}
           <ListItem
             button
             onClick={() => {
               navigate(`/login/${UserData.username}/leaderboard`);
             }}
+            sx={{ margin: "5px 0px" }}
           >
             <ListItemIcon sx={{ pl: 1 }}>
               <SportsScoreIcon />

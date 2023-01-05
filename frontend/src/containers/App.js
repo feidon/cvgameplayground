@@ -1,13 +1,14 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import { useEffect, createContext } from "react";
+import { createContext, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
-import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { USER_SUBSCRIPTION } from "../graphql";
 
 import { FINGER_MORA } from "../constants";
 import { useQuery } from "@apollo/client";
-import { USER_QUERY, USER_SUBSCRIPTION } from "../graphql";
+import { USER_QUERY } from "../graphql";
 
 import LeaderBoard from "./LeaderBoard";
 import useUser from "../hooks/useUser";
@@ -35,23 +36,19 @@ const theme = createTheme({
 const UserContext = createContext();
 
 function App() {
-  const {
-    UserData,
-    setUserData,
-    handleLogout,
-    handleSignUp,
-  } = useUser();
+  const { UserData, setUserData, handleLogout, handleSignUp } = useUser();
   const { loading, error, data, subscribeToMore } = useQuery(USER_QUERY, {
     variables: {
       game: FINGER_MORA,
     },
   });
-  // if (data) console.log(data);
   useEffect(() => {
+    console.log("sub");
     subscribeToMore({
       document: USER_SUBSCRIPTION,
       variables: { game: FINGER_MORA },
       updateQuery: (prev, { subscriptionData }) => {
+        console.log(subscriptionData);
         if (!subscriptionData.data) return prev;
         return { users: subscriptionData.data.userUpdated.data };
       },
@@ -64,6 +61,10 @@ function App() {
         setUserData,
         handleLogout,
         handleSignUp,
+        loading,
+        error,
+        data,
+        subscribeToMore,
       }}
     >
       <ThemeProvider theme={theme}>
